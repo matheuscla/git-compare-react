@@ -39,6 +39,14 @@ export default class Main extends Component {
     }
   }
 
+  handleRemoveRepository = (id) => {
+    const { repositories } = this.state
+    
+    this.setState({
+      repositories: repositories.filter(repository => repository.id !== id)
+    })
+  }
+
   render() {
     const {
       loading,
@@ -62,7 +70,7 @@ export default class Main extends Component {
           </button>
         </Form>
 
-        < CompareList repositories={repositories} />
+        < CompareList removeRepository={this.handleRemoveRepository} repositories={repositories} />
       </Container>
     )
   }

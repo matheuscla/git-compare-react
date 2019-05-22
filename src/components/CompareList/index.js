@@ -6,7 +6,7 @@ import {
   Repository
 } from './styles'
 
-const CompareList = ({ repositories }) => (
+const CompareList = ({ repositories, removeRepository }) => (
   <Container>
     { repositories.map(repository => (
       <Repository key={repository.id}>
@@ -30,6 +30,10 @@ const CompareList = ({ repositories }) => (
             {repository.lastCommit} <small>last commit</small>
           </li>
         </ul>
+        
+        <button onClick={() => removeRepository(repository.id)}>
+          <i className='fa fa-trash' /> Remove
+        </button>
       </Repository>
     ))}
   </Container>
@@ -47,7 +51,8 @@ CompareList.propTypes = {
     forks_count: PropTypes.number,
     open_issues_count: PropTypes.number,
     lastCommit: PropTypes.string
-  })).isRequired
+  })).isRequired,
+  removeRepository: PropTypes.func
 } 
 
 export default CompareList
