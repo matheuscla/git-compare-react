@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
-function App() {
+import GlobalStyle from './styles/global'
+
+const App = () => {
   return ( 
-  <h1>React Github Compare</h1>
+    <Fragment>
+      <GlobalStyle />
+    </Fragment>
   )
 }
 
-export default App;
+export default App
